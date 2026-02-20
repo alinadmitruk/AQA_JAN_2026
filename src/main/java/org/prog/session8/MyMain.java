@@ -1,20 +1,50 @@
 package org.prog.session8;
 
 public class MyMain{
-    public static void main (String[] args){
+    public static void main (String[] args) {
         Apple apple = new Apple();
-        apple.model="15Pro";
-        apple.color="blue";
+        apple.model = "15Pro";
+        apple.color = "blue";
+        Apple apple1 = new Apple();
+        apple1.model ="15Pro";
+        apple1.color = "red";
 
 
         Android android = new Android();
-            android.model = "Galaxy S23";
-            android.color = "white";
+        android.model = "Galaxy S23";
+        android.color = "white";
+        Android android1 = new Android();
+        android1.model="Galaxy S23";
+        android1.color="black";
 
-            android.unlockScreen();
-            android.call("Sonya");
-        System.out.println("======================");
+        usePhone(android,"Alex");
+        System.out.println("==================");
 
-            apple.unlockScreen();
-            android.call("Alex");
-}}
+        usePhone(android1, "Maria");
+        System.out.println("==================");
+
+        usePhone(apple, "Erik");
+
+        System.out.println("===============");
+
+        usePhone(apple, "Lenny");
+
+        System.out.println("===============");
+
+        System.out.println("apple equals apple1: "+ apple.equals(apple1));
+        System.out.println("android equals android1: "+ android.equals(android1));
+        System.out.println("=============");
+        System.out.println("Model + Color hash: " + (apple.model + apple.color).hashCode());
+        System.out.println("Model + Color hash: " + (apple1.model + apple1.color).hashCode());
+        System.out.println("Model + Color hash: " + (android.model + android.color).hashCode());
+        System.out.println("Model + Color hash: " + (android1.model + android1.color).hashCode());
+    }
+
+        public static void usePhone (IPhone phone, String someone){
+            phone.unlockScreen();
+       phone.call(someone);
+
+
+
+
+    }}
