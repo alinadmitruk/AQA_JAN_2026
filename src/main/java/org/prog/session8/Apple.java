@@ -24,10 +24,7 @@ public class Apple implements IPhone{
     }
 
     public int hashCode(){
-        System.out.println("Model hash: " + this.model.hashCode());
-        System.out.println("Color hash: " + this.color.hashCode());
-        System.out.println(this.model + this.color);
-        System.out.println("Model + Color hash: " + (this.model + this.color).hashCode());
+        System.out.println();
         return (this.model + this.color).hashCode();
     }
 }
