@@ -7,6 +7,7 @@ package org.prog.session8;
 //TODO: Both Apple and Android (or others) must implement IPhone
 //TODO: Both Apple and Android must have model and color
 //TODO: Add equals and hashcode for both
+//TODO: * - Add abstract class Phone with constructor parameters model and color
 
 public class Main {
 
