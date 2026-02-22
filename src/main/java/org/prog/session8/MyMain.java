@@ -4,7 +4,7 @@ public class MyMain{
     public static void main (String[] args) {
         Apple apple = new Apple();
         apple.model = "15Pro";
-        apple.color = "blue";
+        apple.color = null;
         Apple apple1 = new Apple();
         apple1.model ="15Pro";
         apple1.color = "red";
@@ -43,8 +43,5 @@ public class MyMain{
         public static void usePhone (IPhone phone, String someone){
             phone.unlockScreen();
        phone.call(someone);
-
-
-
 
     }}
