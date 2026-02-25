@@ -5,30 +5,10 @@ import java.util.List;
 
 public class MyList {
     public static void main(String[] args){
-        List<String> android = new ArrayList<>();
-        List<String> apple = new ArrayList<>();
+        List<> android = new ArrayList<>();
+        List<> apple = new ArrayList<>();
 
-        android.add("white");
-        android.add("red");
-        android.add("blue");
-        android.add("silver");
-        android.add("black");
-        android.add("pink");
-        android.add("silver");
-        android.add("black");
-        android.add("white");
-        android.add("orange");
 
-        apple.add("red");
-        apple.add("white");
-        apple.add("gold");
-        apple.add("red");
-        apple.add("black");
-        apple.add("yellow");
-        apple.add("green");
-        apple.add("blue");
-        apple.add("silver");
-        apple.add("white");
 
         boolean result = android.contains("pink");
         System.out.println("Android contains pink phone: "+result);
