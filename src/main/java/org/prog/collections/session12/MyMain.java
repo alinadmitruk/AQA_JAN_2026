@@ -26,19 +26,17 @@ public class MyMain {
 
      Map<Owner, Set<Phone>> phoneOwner =new HashMap<>();
 
-        Owner owner1 = new Owner();
-        Owner owner2 = new Owner();
-        Owner owner3 = new Owner();
+        Owner owner1 = new Owner("Jack");
+        Owner owner2 = new Owner("Chris");
+        Owner owner3 = new Owner("Jane");
 
-        owner1.name = "Jane";
-        owner2.name="Chris";
-        owner3.name="Jack";
 
         phoneOwner.put(owner1, set1);
         phoneOwner.put(owner2, set2);
         phoneOwner.put(owner3, set3);
 
-        phoneOwner.get(new Owner("Chris"));
+        Set<Phone> chrisPhones = phoneOwner.get(new Owner("Chris"));
+        System.out.println("Chris has this phones: "+chrisPhones);
 
 
 
