@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+    <test name="Feature 1 and 2">
+        <classes>
+            <class name="org.prog.session14.TestNGTests1"/>
+            <class name="org.prog.session14.TestNGTests2"/>
+        </classes>
+    </test>
+    <test name="Feature 3 and 4">
+        <classes>
+            <class name="org.prog.session14.TestNGTests3"/>
+            <class name="org.prog.session14.TestNGTests4"/>
+        </classes>
+    </test>
+</suite>
