@@ -1,0 +1,18 @@
+CREATE TABLE Persons (
+                         PersonID int UNIQUE AUTO_INCREMENT NOT NULL,
+                         FirstName varchar(255) NOT NULL,
+                         LastName varchar(255) NOT NULL,
+                         Gender varchar(80) NOT NULL,
+                         Title varchar(255) NOT NULL,
+                         Nat varchar(255) NOT NULL
+);
+
+INSERT INTO Persons (FirstName, LastName, Gender, Title, Nat) VALUES ('TestFirstName', 'TestLastName', 'TestGender', 'TestTitle', 'TestNat');
+
+select * from Persons;
+
+select * from Persons where FirstName LIKE 'Abigail';
+
+select FirstName, LastName from Persons WHERE Title = 'Mr';
+
+update Persons SET FirstName = 'Abigail' WHERE FirstName = 'Test';
