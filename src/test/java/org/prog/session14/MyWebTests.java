@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.tracing.opentelemetry.SeleniumSpanExporter;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -12,12 +13,15 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class MyWebTests {
     private WebDriver driver;
 
     @BeforeTest
     public void setUp(){ driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
 
     }
     @AfterTest
@@ -25,7 +29,7 @@ public class MyWebTests {
     }
 
     @Test
-    public void myWebTest(){
+    public void myWebTest() {
         driver.get("https://allo.ua");
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(7L));
         webDriverWait.until(
@@ -35,10 +39,48 @@ public class MyWebTests {
         WebElement element = driver.findElement(By.name("search"));
         element.sendKeys("IPhone 17Pro Max");
         element.sendKeys(Keys.ENTER);
-        webDriverWait.until(
-                        ExpectedConditions.presenceOfElementLocated(By.cssSelector("a.product-card__title")));
+        webDriverWait.until(driver->driver.findElements(By.className("product-card")).size()>=3);
+        List<WebElement> products = driver.findElements(By.className("product-card"));
+        System.out.println("Знайдено товарів: " + products.size());
 
-        System.out.println("done");
-    }
 
-}
+        if (products.size()>=3) {
+            WebElement product1 = products.get(0);
+            WebElement product2 = products.get(1);
+            WebElement product3 = products.get(2);
+
+            List<WebElement> price1 = product1.findElements(By.className("sum"));
+            List<WebElement> price2 = product2.findElements(By.className("sum"));
+            List<WebElement> price3 = product3.findElements(By.className("sum"));
+
+        if (price1.size() > 0) {
+            String priceText = price1.get(0).getText();
+            System.out.println("price1= "+priceText);
+        } else {
+            System.out.println("Price1 is not found");
+        }
+            if (price2.size()> 0) {
+                String priceText2 = price2.get(0).getText();
+                System.out.println("price2= "+priceText2);
+            } else {
+                System.out.println("Price2 is not found");
+            }
+                if (price3.size()> 0) {
+                    String priceText3 = price3.get(0).getText();
+                    System.out.println("price3= "+priceText3);
+                } else {
+                    System.out.println("Price3 is not found");
+                }
+
+            }
+
+
+
+
+
+
+
+
+        System.out.println("done");}}
+
+
