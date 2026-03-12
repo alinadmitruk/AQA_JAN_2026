@@ -17,10 +17,12 @@ import java.util.List;
 
 public class MyWebTests {
     private WebDriver driver;
+    private AlloUAPage alloPage;
 
     @BeforeTest
     public void setUp(){ driver = new ChromeDriver();
         driver.manage().window().maximize();
+        alloPage = new AlloUAPage(driver, "https://allo.ua");
 
 
     }
@@ -30,16 +32,12 @@ public class MyWebTests {
 
     @Test
     public void myWebTest() {
-        driver.get("https://allo.ua");
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(7L));
-        webDriverWait.until(
-                        ExpectedConditions.elementToBeClickable(By.name("search")))
-                .click();
+       alloPage.loadPage();
+       alloPage.acceptCookiesIfPresents();
+       alloPage.searchFor("IPhone 17Pro Max");
+       alloPage.waitUntil();
 
-        WebElement element = driver.findElement(By.name("search"));
-        element.sendKeys("IPhone 17Pro Max");
-        element.sendKeys(Keys.ENTER);
-        webDriverWait.until(driver->driver.findElements(By.className("product-card")).size()>=3);
+
         List<WebElement> products = driver.findElements(By.className("product-card"));
         System.out.println("Знайдено товарів: " + products.size());
 
